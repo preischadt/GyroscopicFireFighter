@@ -6,36 +6,60 @@ public class Fire : MonoBehaviour
 {
     float maxLife = 0.5f;
     float currentLife;
-    public ParticleSystem particle;
+    private static int liveFires = 0;
+    private Collider col;
+    public GameObject firePrefab;
+    private int totalChilds = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        Spawn();
-    }
+        col = GetComponent<Collider>();
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        RunSpawn();
     }
 
     void OnParticleCollision(GameObject other)
     {
         currentLife -= Time.deltaTime;
-        Debug.Log($"Collision: {currentLife}");
 
-        for (int i = 0; i < transform.childCount; i++)
+        int childIndex = transform.childCount;
+        if(currentLife <= childIndex * maxLife / totalChilds)
         {
-            if (currentLife <= i * maxLife / transform.childCount)
+            Destroy(transform.GetChild(0).gameObject);
+            if (childIndex == 0)
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                Die();
             }
         }
     }
 
     void Spawn()
     {
+        col.enabled = true;
+        liveFires++;
         currentLife = maxLife;
+        for (int i = 0; i < totalChilds; i++)
+        {
+            Instantiate(firePrefab, transform);
+        }
+    }
+
+    void Die()
+    {
+        liveFires--;
+        col.enabled = false;
+        RunSpawn();
+    }
+
+    IEnumerator SpawnAfterSeconds()
+    {
+        yield return new WaitForSeconds(Random.value*20f);
+        Spawn();
+    }
+
+    void RunSpawn()
+    {
+        StartCoroutine(SpawnAfterSeconds());
     }
 }

@@ -10,4 +10,9 @@ public class StartButton : MonoBehaviour
         Debug.Log("Click");
         SceneManager.LoadScene(1);
     }
+    
+    public void GoToStart()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

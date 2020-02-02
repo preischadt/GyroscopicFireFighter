@@ -4,14 +4,14 @@ Gyro
     [x] Fazer mouse click atirar
     [x] Fazer touch atirar
     [x] Importar prefab de fogo
-    [ ] Implementar fogo
-        [x] Diminui se colidir com a água
-        [x] Se auto-desativa quando fica menor que um certo tamanho
-        [ ] Se auto-ativa em um tempo aleatório
+    [x] Implementar fogo
     [x] Mudar cor da água
-    [ ] Testar em device
+    [x] Buildar e testar em device
+    [ ] Implementar spawn
+    [ ] Botão de Quit Game
 
 Extra
+    [ ] Vitória se limpar todos os fogos
     [ ] Score e Timer
     [ ] Colocar prefab de extintor
     [ ] Fazer device vibrar quando extintor está ativa
