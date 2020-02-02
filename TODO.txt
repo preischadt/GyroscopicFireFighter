@@ -1,0 +1,18 @@
+Gyro
+    [x] Fazer mouse mover a câmera também
+    [x] Importar/fazer partículas de água
+    [x] Fazer mouse click atirar
+    [x] Fazer touch atirar
+    [x] Importar prefab de fogo
+    [ ] Implementar fogo
+        [x] Diminui se colidir com a água
+        [x] Se auto-desativa quando fica menor que um certo tamanho
+        [ ] Se auto-ativa em um tempo aleatório
+    [x] Mudar cor da água
+    [ ] Testar em device
+
+Extra
+    [ ] Score e Timer
+    [ ] Colocar prefab de extintor
+    [ ] Fazer device vibrar quando extintor está ativa
+    [ ] Fazer câmera subir e descer enquanto gira
